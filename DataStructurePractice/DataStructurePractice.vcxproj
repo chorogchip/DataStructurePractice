@@ -130,6 +130,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,6 +141,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DataStructurePractice.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CircularQueue_Array.h" />
+    <ClInclude Include="I_Queue.h" />
+    <ClInclude Include="I_Stack.h" />
+    <ClInclude Include="Node_Mono.h" />
+    <ClInclude Include="reference.h" />
+    <ClInclude Include="Stack_Array.h" />
+    <ClInclude Include="Stack_Linked.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -13,10 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\stack">
+      <UniqueIdentifier>{52b1e015-7e1d-4144-85e9-02764a388981}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\node">
+      <UniqueIdentifier>{96b519e0-a3a0-4945-ad1d-6b0d999fd8ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\queue">
+      <UniqueIdentifier>{4c83e1e9-4dcd-4b3c-8171-f3149723d0c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataStructurePractice.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="reference.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="I_Stack.h">
+      <Filter>소스 파일\stack</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack_Array.h">
+      <Filter>소스 파일\stack</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack_Linked.h">
+      <Filter>소스 파일\stack</Filter>
+    </ClInclude>
+    <ClInclude Include="Node_Mono.h">
+      <Filter>소스 파일\node</Filter>
+    </ClInclude>
+    <ClInclude Include="I_Queue.h">
+      <Filter>소스 파일\queue</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularQueue_Array.h">
+      <Filter>소스 파일\queue</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
