@@ -2,11 +2,11 @@
 #include <iostream>
 #include "Stack_Array.h"
 #include "Stack_Linked.h"
-#include "CircularQueue_Array.h"
+#include "QueueCircular_Array.h"
 
 int main() {
     
-  ch::ds::CircularQueue_Array<int, 5> st;
+  ch::ds::QueueCircular_Array<int, 5> st;
 
   st.push_back(10);
   st.push_back(20);

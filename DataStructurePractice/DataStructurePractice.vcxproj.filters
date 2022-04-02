@@ -47,7 +47,10 @@
     <ClInclude Include="I_Queue.h">
       <Filter>소스 파일\queue</Filter>
     </ClInclude>
-    <ClInclude Include="CircularQueue_Array.h">
+    <ClInclude Include="QueueCircular_Array.h">
+      <Filter>소스 파일\queue</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue_Linked.h">
       <Filter>소스 파일\queue</Filter>
     </ClInclude>
   </ItemGroup>
