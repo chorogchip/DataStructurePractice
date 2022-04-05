@@ -143,6 +143,10 @@
     <ClCompile Include="DataStructurePractice.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataStructures.h" />
+    <ClInclude Include="DequeByArray.h" />
+    <ClInclude Include="DequeCirculatByArray.h" />
+    <ClInclude Include="IDeque.h" />
     <ClInclude Include="QueueCircularByArray.h" />
     <ClInclude Include="IQueue.h" />
     <ClInclude Include="IStack.h" />

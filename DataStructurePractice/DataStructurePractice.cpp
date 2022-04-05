@@ -1,9 +1,6 @@
 ﻿
 #include <iostream>
-#include "StackByArray.h"
-#include "StackByLinked.h"
-#include "QueueCircularByArray.h"
-#include "QueueByLinked.h"
+#include "DataStructures.h"
 
 int main() {
     
@@ -21,6 +18,23 @@ int main() {
   st.push_back(100);
   st.push_back(110);
   st.display();
+
+  ch::ds::DequeByArray<int, 10> dq;
+
+  dq.push_back(10);
+  dq.push_back(20);
+  dq.push_back(30);
+  dq.push_front(-10);
+  dq.push_front(-20);
+  dq.display();
+
+  dq.pop_back();
+  dq.pop_front();
+  dq.display();
+
+  dq.pop_front();
+  dq.pop_front();
+  dq.display();
 
   return 0;
 

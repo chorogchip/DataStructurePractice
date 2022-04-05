@@ -22,6 +22,12 @@
     <Filter Include="소스 파일\queue">
       <UniqueIdentifier>{4c83e1e9-4dcd-4b3c-8171-f3149723d0c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Deque">
+      <UniqueIdentifier>{13c8864a-2b71-42e8-9d04-36d25aa2944b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\core">
+      <UniqueIdentifier>{01ba3388-0790-4b61-8b0b-208c30845807}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataStructurePractice.cpp">
@@ -52,6 +58,18 @@
     </ClInclude>
     <ClInclude Include="QueueByLinked.h">
       <Filter>소스 파일\queue</Filter>
+    </ClInclude>
+    <ClInclude Include="DequeByArray.h">
+      <Filter>소스 파일\Deque</Filter>
+    </ClInclude>
+    <ClInclude Include="IDeque.h">
+      <Filter>소스 파일\Deque</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructures.h">
+      <Filter>소스 파일\core</Filter>
+    </ClInclude>
+    <ClInclude Include="DequeCirculatByArray.h">
+      <Filter>소스 파일\Deque</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
