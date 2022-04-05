@@ -7,8 +7,8 @@ class QueueCircularByArray : public I_Queue<T> {
 
 private:
   T arr_[sz];
-  std::size_t start_ = 0;
-  std::size_t size_ = 0;
+  std::size_t front_ = 0;
+  std::size_t rear_ = 0;
 public:
   QueueCircularByArray();
   ~QueueCircularByArray();
@@ -31,64 +31,82 @@ QueueCircularByArray<T, sz>::~QueueCircularByArray() { }
 template<typename T, std::size_t sz>
 void QueueCircularByArray<T, sz>::push_back(T data) {
   if(!is_full()) {
-    std::size_t ind = start_ + size_;
-    if(ind >= sz) {
-      ind -= sz;
+    arr_[++rear_] = data;
+    if(rear_ == sz) {
+      rear_ = 0;
     }
-    arr_[ind] = data;
-    size_++;
   }
 }
 
 template<typename T, std::size_t sz>
 T QueueCircularByArray<T, sz>::pop_front() {
   if(!is_empty()) {
-    T tt = arr_[start_];
-    start_++;
-    if(start_ >= sz) {
-      start_ -= sz;
+    std::size_t ind = front_ + 1;
+    if(ind == sz) {
+      ind = 0;
+      front_ = 0;
+    } else {
+      front_++;
     }
-    size_--;
-    return tt;
+    return arr_[ind];
   } else {
-    return arr_[0];
+    return arr_[0];  // error : empty
   }
 }
 
 template<typename T, std::size_t sz>
 T QueueCircularByArray<T, sz>::peek_front() const {
   if(!is_empty()) {
-    return arr_[start_];
+    std::size_t ind = front_ + 1;
+    if(ind == sz) {
+      ind = 0;
+    }
+    return arr_[ind];
   } else {
-    return arr_[0];
+    return arr_[0];  // error : empty
   }
 }
 
 template<typename T, std::size_t sz>
 bool QueueCircularByArray<T, sz>::is_empty() const {
-  return size_ == 0;
+  return rear_ + 1 == front_ || rear_ + 1 == front_ + sz;
 }
 
 template<typename T, std::size_t sz>
 std::size_t QueueCircularByArray<T, sz>::get_size() const {
-  return size_;
+  int szz = static_cast<int>(rear_) - static_cast<int>(front_);
+  if(szz < 0) {
+    szz += sz;
+  }
+  return szz;
 }
 
 template<typename T, std::size_t sz>
 void QueueCircularByArray<T, sz>::display() const {
 
-  printf("size : %u\n", static_cast<unsigned int>(size_));
-
-  std::size_t ind = start_ + size_;
-  if(ind >= sz) {
-    ind -= sz;
-  }
-  for(std::size_t i = 0; i != size_; i++) {
-    std::cout << arr_[ind];
+  printf("size : %u\n", static_cast<unsigned int>(get_size()));
+  if(front_ == rear_) {
     putchar('\n');
-    ind++;
-    if(ind >= sz) {
-      ind -= sz;
+    return;
+  }
+  std::size_t ind = front_ + 1;
+  if(ind == sz) {
+    ind = 0;
+  }
+
+  if(ind > rear_) {
+    for(std::size_t i = ind; i != sz; i++) {
+      std::cout << arr_[i];
+      putchar('\n');
+    }
+    for(std::size_t i = 0; i != rear_ + 1; i++) {
+      std::cout << arr_[i];
+      putchar('\n');
+    }
+  } else {
+    for(std::size_t i = ind; i != rear_ + 1; i++) {
+      std::cout << arr_[i];
+      putchar('\n');
     }
   }
   putchar('\n');
@@ -96,7 +114,7 @@ void QueueCircularByArray<T, sz>::display() const {
 
 template<typename T, std::size_t sz>
 bool QueueCircularByArray<T, sz>::is_full() const {
-  return size_ == sz;
+  return rear_ + 1 == front_ || front_ + sz == rear_ + 1;
 }
 
 }}

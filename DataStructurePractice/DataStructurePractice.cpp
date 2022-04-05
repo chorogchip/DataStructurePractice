@@ -4,7 +4,7 @@
 
 int main() {
     
-  ch::ds::QueueByLinked<int> st;
+  ch::ds::QueueCircularByArray<int, 10> st;
 
   st.push_back(10);
   st.push_back(20);

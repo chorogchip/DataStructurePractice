@@ -32,6 +32,7 @@ void StackByArray<T, sz>::push_back(T data) {
     arr_[size_] = data;
     size_++;
   }
+  // else error
 }
 
 template<typename T, std::size_t sz>
@@ -40,7 +41,7 @@ T StackByArray<T, sz>::pop_back() {
     size_--;
     return arr_[size_]; 
   } else {
-    return arr_[0];
+    return arr_[0];  // error
   }
 }
 
