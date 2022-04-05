@@ -1,12 +1,13 @@
 ﻿
 #include <iostream>
-#include "Stack_Array.h"
-#include "Stack_Linked.h"
-#include "QueueCircular_Array.h"
+#include "StackByArray.h"
+#include "StackByLinked.h"
+#include "QueueCircularByArray.h"
+#include "QueueByLinked.h"
 
 int main() {
     
-  ch::ds::QueueCircular_Array<int, 5> st;
+  ch::ds::QueueByLinked<int> st;
 
   st.push_back(10);
   st.push_back(20);

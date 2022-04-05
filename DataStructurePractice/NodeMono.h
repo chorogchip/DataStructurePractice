@@ -9,7 +9,7 @@
 namespace ch { namespace ds {
 template<typename T>
 struct Node_Mono {
-  Node_Mono(const T& t);
+  Node_Mono(const T& data);
 #ifdef DEBUG_COUNT
   ~Node_Mono();
 #endif
@@ -18,8 +18,8 @@ struct Node_Mono {
 };
 
 template<typename T>
-Node_Mono<T>::Node_Mono(const T& tt) {
-  t = tt;
+Node_Mono<T>::Node_Mono(const T& data) {
+  t = data;
 #ifdef DEBUG_COUNT
   count++;
 #endif

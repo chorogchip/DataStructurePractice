@@ -1,18 +1,18 @@
 #pragma once
-#include "I_Queue.h"
+#include "IQueue.h"
 
 namespace ch { namespace ds {
 template<typename T, std::size_t sz>
-class QueueCircular_Array : public I_Queue<T> {
+class QueueCircularByArray : public I_Queue<T> {
 
 private:
   T arr_[sz];
   std::size_t start_ = 0;
   std::size_t size_ = 0;
 public:
-  QueueCircular_Array();
-  ~QueueCircular_Array();
-  void push_back(T t) override;
+  QueueCircularByArray();
+  ~QueueCircularByArray();
+  void push_back(T data) override;
   T pop_front() override;
   T peek_front() const override;
   bool is_empty() const override;
@@ -23,25 +23,25 @@ public:
 };
 
 template<typename T, std::size_t sz>
-QueueCircular_Array<T, sz>::QueueCircular_Array() { }
+QueueCircularByArray<T, sz>::QueueCircularByArray() { }
 
 template<typename T, std::size_t sz>
-QueueCircular_Array<T, sz>::~QueueCircular_Array() { }
+QueueCircularByArray<T, sz>::~QueueCircularByArray() { }
 
 template<typename T, std::size_t sz>
-void QueueCircular_Array<T, sz>::push_back(T t) {
+void QueueCircularByArray<T, sz>::push_back(T data) {
   if(!is_full()) {
     std::size_t ind = start_ + size_;
     if(ind >= sz) {
       ind -= sz;
     }
-    arr_[ind] = t;
+    arr_[ind] = data;
     size_++;
   }
 }
 
 template<typename T, std::size_t sz>
-T QueueCircular_Array<T, sz>::pop_front() {
+T QueueCircularByArray<T, sz>::pop_front() {
   if(!is_empty()) {
     T tt = arr_[start_];
     start_++;
@@ -56,7 +56,7 @@ T QueueCircular_Array<T, sz>::pop_front() {
 }
 
 template<typename T, std::size_t sz>
-T QueueCircular_Array<T, sz>::peek_front() const {
+T QueueCircularByArray<T, sz>::peek_front() const {
   if(!is_empty()) {
     return arr_[start_];
   } else {
@@ -65,17 +65,17 @@ T QueueCircular_Array<T, sz>::peek_front() const {
 }
 
 template<typename T, std::size_t sz>
-bool QueueCircular_Array<T, sz>::is_empty() const {
+bool QueueCircularByArray<T, sz>::is_empty() const {
   return size_ == 0;
 }
 
 template<typename T, std::size_t sz>
-std::size_t QueueCircular_Array<T, sz>::get_size() const {
+std::size_t QueueCircularByArray<T, sz>::get_size() const {
   return size_;
 }
 
 template<typename T, std::size_t sz>
-void QueueCircular_Array<T, sz>::display() const {
+void QueueCircularByArray<T, sz>::display() const {
 
   printf("size : %u\n", static_cast<unsigned int>(size_));
 
@@ -95,7 +95,7 @@ void QueueCircular_Array<T, sz>::display() const {
 }
 
 template<typename T, std::size_t sz>
-bool QueueCircular_Array<T, sz>::is_full() const {
+bool QueueCircularByArray<T, sz>::is_full() const {
   return size_ == sz;
 }
 

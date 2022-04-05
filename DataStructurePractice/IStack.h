@@ -4,10 +4,10 @@
 
 namespace ch { namespace ds {
 template<typename T>
-class I_Stack {
+class IStack {
 
 public:
-  virtual void push_back(T t) = 0;
+  virtual void push_back(T data) = 0;
   virtual T pop_back() = 0;
   virtual T peek_back() const = 0;
   virtual bool is_empty() const = 0;

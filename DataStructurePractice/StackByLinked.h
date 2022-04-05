@@ -1,17 +1,17 @@
 #pragma once
-#include "I_Stack.h"
-#include "Node_Mono.h"
+#include "IStack.h"
+#include "NodeMono.h"
 
 namespace ch { namespace ds {
 template<typename T>
-class Stack_Linked : public I_Stack<T> {
+class StackByLinked : public IStack<T> {
 
 private:
   Node_Mono<T>* node_ = nullptr;
 public:
-  Stack_Linked();
-  ~Stack_Linked();
-  void push_back(T t) override;
+  StackByLinked();
+  ~StackByLinked();
+  void push_back(T data) override;
   T pop_back() override;
   T peek_back() const override;
   bool is_empty() const override;
@@ -20,53 +20,49 @@ public:
 };
 
 template<typename T>
-Stack_Linked<T>::Stack_Linked() { }
+StackByLinked<T>::StackByLinked() { }
 
 template<typename T>
-Stack_Linked<T>::~Stack_Linked() {
-  Node_Mono<T>* nd_new;
+StackByLinked<T>::~StackByLinked() {
+  Node_Mono<T>* nd_old;
   while(node_) {
-    nd_new = node_;
+    nd_old = node_;
     node_ = node_->next;
-    delete nd_new;
+    delete nd_old;
   }
 }
 
 template<typename T>
-void Stack_Linked<T>::push_back(T t) {
-  Node_Mono<T>* nd_new = new Node_Mono<T>(t);
+void StackByLinked<T>::push_back(T data) {
+  Node_Mono<T>* nd_new = new Node_Mono<T>(data);
   nd_new->next = node_;
   node_ = nd_new;
 }
 
 template<typename T>
-T Stack_Linked<T>::pop_back() {
+T StackByLinked<T>::pop_back() {
   if(node_) {
-    Node_Mono<T>* nd_new = node_;
+    Node_Mono<T>* nd_old = node_;
     node_ = node_->next;
-    T t = nd_new->t;
-    delete nd_new;
-    return t;
+    T data = nd_old->t;
+    delete nd_old;
+    return data;
   }
   return node_->t;
 }
 
 template<typename T>
-T Stack_Linked<T>::peek_back() const {
-  if(node_) {
-    return node_->t;
-  } else {
-    return node_->t;
-  }
+T StackByLinked<T>::peek_back() const {
+   return node_->t;
 }
 
 template<typename T>
-bool Stack_Linked<T>::is_empty() const {
+bool StackByLinked<T>::is_empty() const {
   return node_ == nullptr;
 }
 
 template<typename T>
-std::size_t Stack_Linked<T>::get_size() const {
+std::size_t StackByLinked<T>::get_size() const {
   std::size_t sz = 0U;
   Node_Mono<T>* nd_new = node_;
   while(nd_new) {
@@ -77,10 +73,10 @@ std::size_t Stack_Linked<T>::get_size() const {
 }
 
 template<typename T>
-void Stack_Linked<T>::display() const {
+void StackByLinked<T>::display() const {
 
   printf("size : %u\n", static_cast<unsigned int>(get_size()));
-  Stack_Linked<T> stlk;
+  StackByLinked<T> stlk;
   Node_Mono<T>* nd_new = node_;
   while(nd_new) {
     stlk.push_back(nd_new->t);
